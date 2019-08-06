@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
 
-require './lib/first_project'
+require_relative '../config/environment'
 
-First_Porject::CLI.new.call 
