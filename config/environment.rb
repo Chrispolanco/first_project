@@ -5,5 +5,9 @@ require 'pry'
 require 'nokogiri'
 require 'open-uri'
 
-require_relative '../lib/first_project/cli.rb'
+require_relative '../lib/first_project/cli'
+require_relative '../lib/first_project/scraper'
+
+
+
 require_relative '../lib/first_project/version'

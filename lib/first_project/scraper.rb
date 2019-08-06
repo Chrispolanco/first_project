@@ -1,10 +1,9 @@
 class Scraper 
+
+  def get_page 
+    doc = Nokogiri::HTML(open("http://www.seasky.org/constellations/constellations.html"))
+  end
+      binding.pry
+
   
-  def get page 
-    Nokogiri::HTML(open(http://www.seasky.org/constellations/constellations))
-    months = []
-    
-  end 
-  
-  def scrape_
 end 
