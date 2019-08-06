@@ -10,6 +10,15 @@ class Scraper
     new_doc
   end 
   
-  binding.pry 
+  def constellations(num)
+     html = Nokogiri.HTML(open("http://www.seasky.org/constellations/constellations-january.html")) 
+    official_name = html.css('h3 a')[num].text
+    official_name
+  
+  end
   
 end 
+
+test = Scraper.new 
+
+  binding.pry 
