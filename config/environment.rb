@@ -1,0 +1,1 @@
+#add all rb under lib here and then require this file in console and in excutable 
