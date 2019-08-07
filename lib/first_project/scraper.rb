@@ -12,10 +12,9 @@ class Scraper
   
   def constellations(num)
      html = Nokogiri.HTML(open("http://www.seasky.org/constellations/constellations-january.html")) 
-    official_name = html.css('h3 a')[num].text
-    official_name
-  
-  end
+    return official_name = html.css('h3 a')[num].text,common_name = html.css('h5')[num].text
+    
+  end 
   
 end 
 
