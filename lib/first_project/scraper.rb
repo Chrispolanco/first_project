@@ -18,6 +18,6 @@ class Scraper
   
 end 
 
-test = Scraper.new 
 
-  binding.pry 
+
+
