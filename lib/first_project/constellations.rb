@@ -8,10 +8,19 @@ class Constellations
   end
   
   def info
-     doc = inner_page 
+    doc = inner_page 
     #new_doc = doc.css('div#con-text text()')[13].text
-    general_information = doc.css('div#con-text p').text
-    puts general_information
+    #puts general_information = doc.css('div#con-text p')[1].text.squeeze
+    #puts ""
+    #puts general_information = doc.css('div#con-text p')[2].text.squeeze
+    #puts""
+    puts general_information = doc.css('div#main-content-center p')[1].text
+    puts""
+    puts general_information = doc.css('div#main-content-center p')[2].text
+    puts""
+    puts general_information = doc.css('div#main-content-center p')[3].text
+    puts""
+    puts general_information = doc.css('div#main-content-center p')[4].text
   end 
   
 end 
