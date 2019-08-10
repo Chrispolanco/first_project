@@ -1,4 +1,5 @@
 class Constellations 
+  
   attr_accessor :pronunciation, :abbreviation, :genitive, :right_ascension, :declination, :area_in_square_degrees, :crosses_meridian, :visible_between_latitudes
   
   def inner_page   
@@ -11,7 +12,7 @@ class Constellations
     puts""
     puts general_information = doc.css('div#main-content-center p')[2].text
     puts""
-    puts #general_information = doc.css('div#main-content-center p')[3].text
+    puts general_information = doc.css('div#main-content-center p')[3].text
     puts""
     puts general_information = doc.css('div#main-content-center p')[4].text
   end 
@@ -64,10 +65,33 @@ class Constellations
     
   end  
   
-  def find(num)
+  def crosses_meridian
     doc = inner_page
-    pronunciation = doc.css('div#con-text text()')[num].text.strip
-  end 
+    @crosses_meridian = doc.css('div#con-text text()')[24].text.strip
+    @crosses_meridian.slice!(0..4)
+    @crosses_meridian
+    
+  end  
+  
+  def visible_between_latitudes
+    doc = inner_page
+    @visible_between_latitudes = doc.css('div#con-text text()')[27].text.strip
+    @visible_between_latitudes.slice!(0..4)
+    @visible_between_latitudes
+    
+  end  
+  
+  
+  def info
+    doc = inner_page
+    puts general_information = doc.css('div#main-content-center p')[1].text
+    puts""
+    puts general_information = doc.css('div#main-content-center p')[2].text
+    puts""
+    puts #general_information = doc.css('div#main-content-center p')[3].text
+    puts""
+    puts general_information = doc.css('div#main-content-center p')[4].text
+  end   
   
 end 
 
