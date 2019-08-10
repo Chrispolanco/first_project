@@ -5,11 +5,13 @@ class Scraper
   end
   
   def month
+    months = []
     doc = get_page
     new_doc = doc.css('div#main-content-center a')
-    months << new_doc[0..11].each.with_index(1)  do |month, index| 
-      puts "#{index} #{month.text}"
+    new_doc[0..11].each.with_index(1)  do |month, index| 
+      months << "#{index} #{month.text}"
     end 
+    return months 
   end 
   
   def constellations(num)
@@ -19,10 +21,10 @@ class Scraper
     
   end 
 
+end 
+
 test = Scraper.new
 binding.pry 
-
-end 
 
 
 
