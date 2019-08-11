@@ -2,11 +2,13 @@ class Scraper
   
   def month_list
     months = []
+    doc = Nokogiri::HTML(open("http://www.seasky.org/constellations/constellations.html"))
     list_month = doc.css('div#main-content-center a')
       list_month[0..11].each.with_index(1)  do |month, index| 
-      months << "#{index} #{month.text}"
+      months << "#{index}  #{month.text}"
       end
     puts months 
+    
   end 
 
   
@@ -17,13 +19,36 @@ class Scraper
   
   end 
 
-  
-  def constellations(num)
-    html = Nokogiri.HTML(open("http://www.seasky.org/constellations/constellations-december.html")) 
-    puts official_name = html.css('h3 a')[num].text 
-    puts common_name = html.css('h5')[num].text
+  def constellations_list
+    list_constellations = []
+    html = Nokogiri.HTML(open("#{month_link}")) 
+      html.css('h3').each.with_index(1) do |common, index| list_constellations << "#{index} #{common.text}" 
+      end 
+      list_constellations.each do |x| 
+        if x != nil 
+          html.css('h5').each do |official|
+            list_constellations << "#{official.text}"
+          end
+       end 
+      end 
+    list_constellations
+        #{|constellation|
+        #list_constellations << html.css('h3').text
+        #list_constellations << html.css('h5').text} 
     
-  end 
+    
+    #puts official_name = html.css('h3 a')[num].text 
+    #puts common_name = html.css('h5')[num].text
+    
+  end
+  
+  
+  #def constellations[num]
+  #  html = Nokogiri.HTML(open("#{month_link}")) 
+  #  puts official_name = html.css('h3 a')[num].text 
+  #  puts common_name = html.css('h5')[num].text
+    
+  #end 
 
 end 
 
