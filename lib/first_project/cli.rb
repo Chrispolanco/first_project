@@ -2,18 +2,22 @@
 class CLI
   
   def run 
-    welcome
-    selection
+    self.welcome
   end 
 
   def welcome
-    puts "Welcome Constellation Information Seekers!"
+   puts ""
+   puts "Welcome Constellation Information Seekers!"
+   puts ""
+   selection
   end 
   
   def selection 
-    puts "Which months constellations are you interested in learning about"
-  end 
-  
+    puts ""
+    puts "Which months constellations are you interested in learning about?"
+    input = gets.strip.to_i
+    
+  end
   
   
   
@@ -21,3 +25,4 @@ class CLI
 
   
 end
+
