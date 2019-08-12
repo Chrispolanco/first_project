@@ -22,16 +22,15 @@ class Scraper
   def constellations_list
     list_constellations = {}
     html = Nokogiri.HTML(open("#{month_link}")) 
-      html.css('h3').each.with_index(1) do |common, index| list_constellations[":#{index}"] = "#{common.text}"
-      end 
-#      list_constellations.each do |x| 
-#        if x != nil 
-#      html.css('h5').each.with_index(1) do |official, index|
-#        if list_constellations
-#          x << "#{official.text}"
-#          end
-#       end 
-#      end 
+      html.css('h3').each.with_index(1) do |official, index|
+        list_constellations[":#{index}"] = ["#{official.text}"]
+      html.css('h5').each.with_index(1) do |common, index|
+          if list_constellations[":#{index}"] == "#{index}"
+            list_constellations[":#{index}"] = "#{common.text}"
+        end 
+      end
+    end 
+
     puts list_constellations
         #{|constellation|
         #list_constellations << html.css('h3').text
@@ -52,6 +51,5 @@ class Scraper
   #end 
 
 end 
-
-    test = Scraper.new
-    binding.pry 
+  test = Scraper.new
+  binding.pry 
