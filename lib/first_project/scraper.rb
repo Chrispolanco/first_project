@@ -14,12 +14,13 @@ class Scraper
   
   def month_link
     doc = Nokogiri::HTML(open("http://www.seasky.org/constellations/constellations.html"))
-    month = doc.css('div#main-content-center a')[0].attribute('href').value
+    month = doc.css('div#main-content-center a')[11].attribute('href').value
     html = ("http://www.seasky.org/constellations/#{month}")
   
   end 
 
   def constellations_list
+    main = []
     list_h3 = []
     list_h5 = []
     html = Nokogiri.HTML(open("#{month_link}")) 
@@ -29,20 +30,18 @@ class Scraper
       html.css('h5').each do |common|
         list_h5 << "#{common.text}" 
       end
-    list_h3.zip(list_h5).map do |h3, h5|
-      puts h3
-      puts h5
-      puts ""
+    list_h3.zip(list_h5).each do |h3, h5|
+      h3
+      h5
     end   
   end
   
   
-  #def constellations[num]
-  #  html = Nokogiri.HTML(open("#{month_link}")) 
-  #  puts official_name = html.css('h3 a')[num].text 
-  #  puts common_name = html.css('h5')[num].text
-    
-  #end 
+  def constellations(num)
+    html = Nokogiri.HTML(open("#{month_link}"))
+    constellation = html.css('div#mainContent h3 a')[num].attribute('href').value
+    new_html = ("http://www.seasky.org/constellations/#{constellation}")
+  end 
 
 end 
   test = Scraper.new
