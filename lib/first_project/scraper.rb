@@ -1,6 +1,6 @@
 class Scraper 
   
-  def month_list
+  def self.month_list
     months = []
     doc = Nokogiri::HTML(open("http://www.seasky.org/constellations/constellations.html"))
     list_month = doc.css('div#main-content-center a')
@@ -19,7 +19,7 @@ class Scraper
   
   end 
 
-  def constellations_list
+  def self.constellations_list
     main = []
     list_h3 = []
     list_h5 = []
@@ -44,5 +44,3 @@ class Scraper
   end 
 
 end 
-  test = Scraper.new
-  binding.pry 

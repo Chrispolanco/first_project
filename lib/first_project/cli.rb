@@ -8,6 +8,7 @@ class CLI
     puts ""
     puts "Which months constellations are you interested in learning about?"
     Scraper.month_list
+    input = ''
     while input != "exit"
       puts "Which months constellations are you interested in learning about?"
       Scraper.month_list
@@ -16,7 +17,10 @@ class CLI
         puts "yes"
       else 
         puts "Sorry that would not be a valid choice, please type 'exit' to leave"
+        binding.pry 
     end
   end 
+end 
+
 end 
 
