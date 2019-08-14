@@ -14,15 +14,19 @@ class CLI
   def start 
     input = ""
     while input != "exit"
-      input = gets.strip.to_i-1
-      if input > 0 && input < 13
-        puts "yes"
+      input = gets.strip.to_i
+      if input >= 0 && input <= 12
+        constellations_list
       else 
         puts "Sorry that would not be a valid choice, please type 'exit' to leave"
     end
   end 
           binding.pry 
 end 
+
+  def constellation_list
+    month_link = Scraper.month_link(input)
+  end 
 
 end 
 

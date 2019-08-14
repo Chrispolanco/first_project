@@ -12,9 +12,9 @@ class Scraper
   end 
 
   
-  def month_link
+  def self.month_link(input)
     doc = Nokogiri::HTML(open("http://www.seasky.org/constellations/constellations.html"))
-    month = doc.css('div#main-content-center a')[11].attribute('href').value
+    month = doc.css('div#main-content-center a')[input].attribute('href').value
     html = ("http://www.seasky.org/constellations/#{month}")
   
   end 
@@ -37,7 +37,7 @@ class Scraper
   end
   
   
-  def constellations(num)
+  def self.constellations(num)
     html = Nokogiri.HTML(open("#{month_link}"))
     constellation = html.css('div#mainContent h3 a')[num].attribute('href').value
     new_html = ("http://www.seasky.org/constellations/#{constellation}")
