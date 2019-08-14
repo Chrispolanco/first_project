@@ -1,22 +1,13 @@
-class Scraper 
+class Scraper
   
-  def self.month_list
-    months = []
+  def months
     doc = Nokogiri::HTML(open("http://www.seasky.org/constellations/constellations.html"))
-    list_month = doc.css('div#main-content-center a')
-      list_month[0..11].each.with_index(1)  do |month, index| 
-      months << "#{index}  #{month.text}"
-      end
-    puts months 
-    
-  end 
-
-  
-  def self.month_link(input)
-    doc = Nokogiri::HTML(open("http://www.seasky.org/constellations/constellations.html"))
-    month = doc.css('div#main-content-center a')[input].attribute('href').value
-    html = ("http://www.seasky.org/constellations/#{month}")
-  
+    calendar = doc.css('div#main-content-center a')[0..11].each do |month|
+      name = month.text 
+      url = month.attr("href")
+      Months.new(name, url)
+      Months.save 
+    end
   end 
 
   def self.constellations_list
