@@ -1,6 +1,7 @@
 class Scraper
   
   STANDARD_URL = "http://www.seasky.org/constellations/constellations"
+  INNER_URL = "http://www.seasky.org/constellations/constellation"
   
   #def self.months
   #  doc = Nokogiri::HTML(open("http://www.seasky.org/constellations/constellations.html"))
@@ -12,30 +13,38 @@ class Scraper
   #  end
   #end 
 
-  def constellations
-    test = []
-    doc = Nokogiri::HTML(open("http://www.seasky.org/constellations/constellations-january.html"))
-    #doc = Nokogiri::HTML(open(STANDARD_URL + new_month.url))
-    all_official = doc.css('h3').each do |single|
-      official_name = single.text
-      url = single.css("a").attr("href").value
+#  def constellations(new_month)
+#    doc = Nokogiri::HTML(open(STANDARD_URL + new_month.url))
+#    months_constellations = doc.css('h3').each do |single|
+#      official_name = single.text
+#      url = single.css("a").attr("href").value
+#      single_constellation = Constellations.new(official_name,url)
+#      single_constellation.save 
+#  end 
       
-      test << url 
-    end 
       
-      binding.pry 
       
 #   all_common = doc.css('h5').each do |single_common|
 #     common_name = single_common.text
 #   end
-    test 
-  end 
+
+
+
+  def details(single_constellation)
+    doc = Nokogiri::HTML(open(INNER_URL + new_month.url))
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  end
+ 
+ :official_name, :common_name, :url, :pronunciation, :abbreviation, :genitive, :right_ascension, :declination, :area_in_square_degrees, :crosses_meridian, :visible_between_latitudes
+ 
   
-  def self.constellations(num)
-    html = Nokogiri.HTML(open("#{month_link}"))
-    constellation = html.css('div#mainContent h3 a')[num].attribute('href').value
-    new_html = ("http://www.seasky.org/constellations/#{constellation}")
-  end 
-
+  
 end 
-
