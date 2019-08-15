@@ -30,20 +30,19 @@ class Scraper
 
 
 
-  def details(single_constellation)
-    doc = Nokogiri::HTML(open(INNER_URL + new_month.url))
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  end
+#  def details(single_constellation)
+#    doc = Nokogiri::HTML(open(INNER_URL + new_month.url))
+#    single_constellation.pronunciation= doc.css('div#con-text text()')[8].text.strip
+#    single_constellation.abbreviation= 
+#    single_constellation.genitive= 
+#    single_constellation.right_ascension= 
+#    single_constellation.declination= 
+#    single_constellation.area_in_square_degrees= 
+#    single_constellation.crosses_meridian= 
+#    single_constellation.visible_between_latitudes= 
+#
+#  end
  
- :official_name, :common_name, :url, :pronunciation, :abbreviation, :genitive, :right_ascension, :declination, :area_in_square_degrees, :crosses_meridian, :visible_between_latitudes
  
   
   

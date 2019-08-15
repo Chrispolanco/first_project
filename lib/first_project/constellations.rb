@@ -1,8 +1,8 @@
 class Constellations
   
-  attr_accessor :official_name, :common_name, :url, :pronunciation, :abbreviation, :genitive, :right_ascension, :declination, :area_in_square_degrees, :crosses_meridian, :visible_between_latitudes
+  attr_accessor :official_name, :url, :pronunciation, :abbreviation, :genitive, :right_ascension, :declination, :area_in_square_degrees, :crosses_meridian, :visible_between_latitudes
   
-  def initialize(official_name, common_name, url, pronunciation=nil, abbreviation=nil, genitive=nil, right_ascension=nil, declination=nil, area_in_square_degrees=nil, crosses_meridian=nil, visible_between_latitudes=nil) 
+  def initialize(official_name, url, pronunciation=nil, abbreviation=nil, genitive=nil, right_ascension=nil, declination=nil, area_in_square_degrees=nil, crosses_meridian=nil, visible_between_latitudes=nil) 
     
     @official_name = official_name
     @common_name = common_name

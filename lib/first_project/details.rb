@@ -6,10 +6,10 @@ class Details
   end
   
   def pronunciation
+    values= []
     doc = inner_page
-    @pronunciation = doc.css('div#con-text text()')[8].text.strip
-    @pronunciation.slice!(0..4)
-    @pronunciation
+    pronunciation = doc.css('div#con-text text()')[8].text.strip.reverse.chop!.chop!.chop!.chop!.chop!.reverse
+    values << pronunciation
     
   end 
   
