@@ -1,5 +1,5 @@
 class Months 
-  @@ = []
+  @@all = []
   
   attr_accessor :name, :url 
   

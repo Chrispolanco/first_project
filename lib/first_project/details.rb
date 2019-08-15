@@ -73,14 +73,14 @@ class Details
   
   def info
     doc = inner_page
-      puts""
-    puts general_information = doc.css('div#main-content-center p')[1].text
-    puts""
-    puts general_information = doc.css('div#main-content-center p')[2].text
-    puts""
-    puts general_information = doc.css('div#main-content-center p')[3].text
-    puts""
-    puts general_information = doc.css('div#main-content-center p')[4].text
+    
+    general_information = doc.css('div#main-content-center p')[1].text
+    
+    general_information = doc.css('div#main-content-center p')[2].text
+    
+    general_information = doc.css('div#main-content-center p')[3].text
+    
+    general_information = doc.css('div#main-content-center p')[4].text
   end   
   
 end 

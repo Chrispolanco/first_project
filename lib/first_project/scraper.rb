@@ -1,12 +1,12 @@
 class Scraper
   
-  def months
+  def self.months
     doc = Nokogiri::HTML(open("http://www.seasky.org/constellations/constellations.html"))
     calendar = doc.css('div#main-content-center a')[0..11].each do |month|
       name = month.text 
       url = month.attr("href")
-      Months.new(name, url)
-      Months.save 
+      new_month= Months.new(name, url)
+      new_month.save 
     end
   end 
 
