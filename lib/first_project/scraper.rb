@@ -16,19 +16,20 @@ class Scraper
     test = []
     doc = Nokogiri::HTML(open("http://www.seasky.org/constellations/constellations-january.html"))
     #doc = Nokogiri::HTML(open(STANDARD_URL + new_month.url))
-    all_official = doc.css('h3').each do |single_official|
-      official_name = single_official.text
-    all_common = doc.css('h5').each do |single_common|
-      common_name = single_common.text 
-        test << common_name && official_name
+    all_official = doc.css('h3').each do |single|
+      official_name = single.text
+      url = single.css("a").attr("href").value
+      
+      test << url 
     end 
+      
+      binding.pry 
+      
+#   all_common = doc.css('h5').each do |single_common|
+#     common_name = single_common.text
+#   end
+    test 
   end 
-    binding.pry 
-    common_name = doc.css('h5')
-    url 
-    
-  end 
-  
   
   def self.constellations(num)
     html = Nokogiri.HTML(open("#{month_link}"))
