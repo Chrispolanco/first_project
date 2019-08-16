@@ -6,7 +6,7 @@ require 'nokogiri'
 require 'open-uri'
 
 require_relative '../lib/first_project/scraper'
-require_relative '../lib/first_project/details'
+require_relative '../lib/first_project/constellations'
 require_relative '../lib/first_project/cli'
 require_relative '../lib/first_project/months'
 
