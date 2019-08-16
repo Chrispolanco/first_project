@@ -26,14 +26,17 @@ class CLI
     puts "If you would like to exit please type 'exit'"
     puts ""
     input = gets.chomp 
-    if input == "exit"
+    if input != "exit"
+      if input.to_i-1 >= 0 && input.to_i-1 <=11
+        puts "yes"
+        #month = Months.all[input.to_i -1]
+      else 
+        puts "type 'exit' to leave or numbers 1 - 12 to choose month"
+        list_months
+        puts ""
+      end 
+    elsif input == "exit"
       exit 
-    elsif input== "1"||"2"||"3"||"4"||"5"||"6"||"7"||"8"||"9"||"10"||"11"||"12"
-      month = Months.all[input.to_i -1]
-    else 
-      list_months
-    else 
-    end
   end 
 end 
 
