@@ -20,7 +20,8 @@ class Scraper
       official_name = single.text
       url = single.css("a").attr("href").value
       single_constellation = Constellations.new(official_name,url)
-      single_constellation.save 
+      single_constellation.save
+    end 
   end 
       
 
@@ -45,6 +46,4 @@ class Scraper
 end
 
 
-#   all_common = doc.css('h5').each do |single_common|
-#     common_name = single_common.text
-#   end
+
