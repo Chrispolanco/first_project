@@ -1,15 +1,18 @@
 class CLI
   
   def run 
-    puts ""
-    puts "Welcome Constellation Information Seekers!"
-    puts ""
+    welcome
     Scraper.months
     list_months 
     start 
     end 
   end
-
+  
+  def welcome 
+    puts ""
+    puts "Welcome Constellation Information Seekers!"
+    puts ""
+  end 
   
   def list_months 
     Months.all.each.with_index(1) do |month, index|
@@ -17,8 +20,9 @@ class CLI
     end 
   end 
   
-  def list_constellations
-    Constellations.all.with_index(1) do |constellation, index|
+  def list_constellations(month)
+    Scraper.constellations(month)
+    Constellations.all.each.with_index(1) do |constellation, index|
       puts "#{index}. #{constellation.official_name}"
     end 
   end 
@@ -35,11 +39,11 @@ class CLI
       new_input = (input.to_i) -1
       if new_input >= 0 && new_input <=11
         month = Months.all[new_input]
-        Scraper.constellations(month)
-        self.list_constellations(month)
+        list_constellations(month)
+        puts "Which constellations are you interested in learning about?"
       else 
         puts "Not a valid choice plus choose from list"
-        list_months
+        start
       end 
     elsif input == "exit"
       exit 

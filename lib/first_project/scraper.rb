@@ -19,7 +19,7 @@ class Scraper
     months_constellations = doc.css('h3').each do |single|
       official_name = single.text
       url = single.css("a").attr("href").value
-      single_constellation = Constellations.new(official_name,url)
+      single_constellation = Constellations.new(official_name, url)
       single_constellation.save
     end 
   end 
