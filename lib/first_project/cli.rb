@@ -45,7 +45,30 @@ class CLI
   
 def print_details(constellation)
   Scraper.details(constellation)
-  puts "#{constellation.pronunciation}"
+    puts " Pronunciation: #{constellation.pronunciation}"
+    puts " Abbreviation: #{constellation.abbreviation}"
+    puts " Genitive: #{constellation.genitive}"
+    puts " Right Ascension:  #{constellation.right_ascenstion}"
+    puts " Declination: #{constellation.declination}"
+    puts " Area in Square Degrees:  #{constellation.area_in_square_degrees}"
+    puts " Crosses Meridian:  #{constellation.crosses_meridian}"
+    puts " Visible Between Latitudes: #{constellation.visible_between_latitudes}"
+    puts ""
+    puts "                    General Information                "
+    puts ""
+    puts " #{constellation.gen_info_one}"
+    puts ""
+    puts "#{constellation.gen_info_two}"
+    puts ""
+    puts "#{constellation.gen_info_three}"
+    puts ""
+    puts "#{constellation.gen_info_four}"
+    puts ""
+
+
+
+
+
 end 
 
   def start
