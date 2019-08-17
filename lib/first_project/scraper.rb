@@ -1,6 +1,6 @@
 class Scraper
   
-  STANDARD_URL = "http://www.seasky.org/constellations/constellations"
+  STANDARD_URL = "http://www.seasky.org/constellations/"
   INNER_URL = "http://www.seasky.org/constellations/constellation"
   
   def self.months

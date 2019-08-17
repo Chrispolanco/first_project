@@ -32,7 +32,7 @@ class CLI
     puts ""
     input = gets.chomp 
     if input != "exit"
-      new_input = input.to_i -1
+      new_input = (input.to_i) -1
       if new_input >= 0 && new_input <=11
         month = Months.all[new_input]
         Scraper.constellations(month)
