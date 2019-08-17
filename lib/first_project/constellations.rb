@@ -5,7 +5,6 @@ class Constellations
   def initialize(official_name, url, pronunciation=nil, abbreviation=nil, genitive=nil, right_ascension=nil, declination=nil, area_in_square_degrees=nil, crosses_meridian=nil, visible_between_latitudes=nil, gen_info_one=nil, gen_info_two= nil, gen_info_three= nil, gen_info_four= nil) 
     
     @official_name = official_name
-    @common_name = common_name
     @url = url 
     @pronunciation = pronunciation
     @abbreviation = abbreviation

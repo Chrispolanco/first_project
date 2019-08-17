@@ -17,6 +17,12 @@ class CLI
       puts "#{index}. #{month.name}"
     end 
   end 
+  
+  def list_constellations
+    Constellations.all.with_index(1) do |constellation, index|
+      puts "#{index}. #{constellation.official_name}"
+    end 
+  end 
 
 
   def start
@@ -28,12 +34,12 @@ class CLI
     input = gets.chomp 
     if input != "exit"
       if input.to_i-1 >= 0 && input.to_i-1 <=11
-        puts "yes"
-        #month = Months.all[input.to_i -1]
+        month = Months.all[input.to_i -1]
+        Scraper.constellations(month)
+        self.list_constellations(month)
       else 
-        puts "type 'exit' to leave or numbers 1 - 12 to choose month"
+        puts "Not a valid choice plus choose from list"
         list_months
-        puts ""
       end 
     elsif input == "exit"
       exit 
