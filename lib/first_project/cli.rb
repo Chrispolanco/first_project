@@ -1,4 +1,3 @@
-#Our CLI Controller (Dealing with inputs)
 class CLI
   
   def run 
@@ -33,8 +32,9 @@ class CLI
     puts ""
     input = gets.chomp 
     if input != "exit"
-      if input.to_i-1 >= 0 && input.to_i-1 <=11
-        month = Months.all[input.to_i -1]
+      new_input = input.to_i -1
+      if new_input >= 0 && new_input <=11
+        month = Months.all[new_input]
         Scraper.constellations(month)
         self.list_constellations(month)
       else 
