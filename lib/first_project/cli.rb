@@ -48,7 +48,7 @@ def print_details(constellation)
     puts " Pronunciation: #{constellation.pronunciation}"
     puts " Abbreviation: #{constellation.abbreviation}"
     puts " Genitive: #{constellation.genitive}"
-    puts " Right Ascension:  #{constellation.right_ascenstion}"
+    puts " Right Ascension:  #{constellation.right_ascension}"
     puts " Declination: #{constellation.declination}"
     puts " Area in Square Degrees:  #{constellation.area_in_square_degrees}"
     puts " Crosses Meridian:  #{constellation.crosses_meridian}"
