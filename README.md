@@ -1,10 +1,8 @@
 Hello World 
 
-# FirstProject
+# FirstProject (Constellations)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/first_project`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome space information seekers!!! Have you ever wondered which batch of the 88 Constellations would be assocaited with your month. If so you have come to the right place. You will be able to not only learn which Constellations would be associated with your birth month but also other in depth information about each constellation. Knowledge is only a few clicks away. After your done learning about the Constellation don't be surprised if you look up at the stars tonight. Have Fun!!
 
 ## Installation
 
@@ -24,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To start the CLI enter "./bin/first_project" and follow prompts. Enter which months constellations you would like to learn about, then which constellation you would like in depth information about. You will be using the key pad, and when you want to exit just type 'exit'. 
 
 ## Development
 
