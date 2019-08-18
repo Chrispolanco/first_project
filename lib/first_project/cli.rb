@@ -21,6 +21,7 @@ class CLI
   
   
   def list_constellations(month)
+    Constellations.all.clear
     list = []
     Scraper.constellations(month)
     puts "Which constellations are you interested in learning about?"
@@ -42,6 +43,7 @@ class CLI
     elsif inner_input == "exit" 
       exit
     end
+    list.clear 
     sleep 4
     list_months
     start 
