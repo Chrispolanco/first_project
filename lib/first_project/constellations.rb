@@ -29,8 +29,7 @@ class Constellations
   end 
   
   def save
-    if self.class.all != self 
-      self.class.all << self
+    if self.class.all << self 
     end 
   end  
   

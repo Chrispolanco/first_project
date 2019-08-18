@@ -3,8 +3,8 @@ class CLI
   def run 
     welcome
     Scraper.months
-    start 
-    end 
+    list_months
+    start
   end
   
   def welcome 
@@ -22,6 +22,7 @@ class CLI
   
   def list_constellations(month)
     list = []
+    Scraper.constellations(month)
     puts "Which constellations are you interested in learning about?"
     Constellations.all.each.with_index(1) do |constellation, index|
       puts "#{index}. #{constellation.official_name}"
@@ -40,39 +41,38 @@ class CLI
         end 
     elsif inner_input == "exit" 
       exit
-    end 
+    end
+    sleep 4
+    list_months
+    start 
   end 
   
-def print_details(constellation)
-  Scraper.details(constellation)
-    puts " Pronunciation: #{constellation.pronunciation}"
-    puts " Abbreviation: #{constellation.abbreviation}"
-    puts " Genitive: #{constellation.genitive}"
-    puts " Right Ascension:  #{constellation.right_ascension}"
-    puts " Declination: #{constellation.declination}"
-    puts " Area in Square Degrees:  #{constellation.area_in_square_degrees}"
-    puts " Crosses Meridian:  #{constellation.crosses_meridian}"
-    puts " Visible Between Latitudes: #{constellation.visible_between_latitudes}"
-    puts ""
-    puts "                    General Information                "
-    puts ""
-    puts " #{constellation.gen_info_one}"
-    puts ""
-    puts "#{constellation.gen_info_two}"
-    puts ""
-    puts "#{constellation.gen_info_three}"
-    puts ""
-    puts "#{constellation.gen_info_four}"
-    puts ""
+  def print_details(constellation)
+    Scraper.details(constellation)
+      puts ""
+      puts " Pronunciation: #{constellation.pronunciation}"
+      puts " Abbreviation: #{constellation.abbreviation}"
+      puts " Genitive: #{constellation.genitive}"
+      puts " Right Ascension:  #{constellation.right_ascension}"
+      puts " Declination: #{constellation.declination}"
+      puts " Area in Square Degrees:  #{constellation.area_in_square_degrees}"
+      puts " Crosses Meridian:  #{constellation.crosses_meridian}"
+      puts " Visible Between Latitudes: #{constellation.visible_between_latitudes}"
+      puts ""
+      puts "                    General Information                "
+      puts ""
+      puts " #{constellation.gen_info_one}"
+      puts ""
+      puts "#{constellation.gen_info_two}"
+      puts ""
+      puts "#{constellation.gen_info_three}"
+      puts ""
+      puts "#{constellation.gen_info_four}"
+      puts ""
 
-
-
-
-
-end 
+  end 
 
   def start
-    list_months
     puts ""
     puts "Which months constellations are you interested in learning about?"
     puts ""  
@@ -82,15 +82,18 @@ end
     if input != "exit"
       new_input = (input.to_i) -1
       if new_input >= 0 && new_input <=11
+        Constellations.all.clear
         month = Months.all[new_input]
-        Scraper.constellations(month)
         list_constellations(month)
       else 
         puts "Not a valid choice plus choose from list"
-        start
+        list_months
+        puts ""
+        start 
       end 
     elsif input == "exit"
       exit 
+    end
   end 
-end 
 
+end 

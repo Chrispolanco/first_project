@@ -16,7 +16,7 @@ class Scraper
 
   def self.constellations(new_month)
     doc = Nokogiri::HTML(open(STANDARD_URL + new_month.url))
-    months_constellations = doc.css('h3').each do |single|
+      months_constellations = doc.css('h3').each do |single|
       official_name = single.text
       url = single.css("a").attr("href").value
       single_constellation = Constellations.new(official_name, url)
