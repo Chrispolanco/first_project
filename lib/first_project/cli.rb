@@ -37,7 +37,7 @@ class CLI
           constellation = Constellations.all[final_input]
           print_details(constellation)
         else 
-          puts "Enter number from list or exit"
+          puts "Enter number from the above list or type 'exit' to exit"
           list_constellations(month)
         end 
     elsif inner_input == "exit" 
@@ -88,7 +88,7 @@ class CLI
         month = Months.all[new_input]
         list_constellations(month)
       else 
-        puts "Not a valid choice plus choose from list"
+        puts "Not a valid choice please option from the list"
         list_months
         puts ""
         start 
