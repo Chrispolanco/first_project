@@ -40,7 +40,7 @@ class CLI
         month = Months.all[new_input]
         list_constellations(month)
       else 
-        puts "Not a valid choice please option from the list"
+        puts "Not a valid choice please choose option from the list"
         list_months
         puts ""
         start 
